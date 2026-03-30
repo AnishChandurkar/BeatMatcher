@@ -398,8 +398,9 @@ export default function Home() {
                   />
                   <div
                     className="hit-circle"
-                    onMouseDown={e => {
-                      if (e.button !== 0) return;
+                    onPointerDown={e => {
+                      if (e.pointerType === "mouse" && e.button !== 0) return;
+                      e.preventDefault();
                       e.stopPropagation();
                       processHit(circle);
                     }}
